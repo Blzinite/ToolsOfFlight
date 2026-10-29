@@ -18,7 +18,8 @@ public class DropItem {
         if (event.getLevel() instanceof ServerLevel server) {
             if (event.getEntity() instanceof ItemEntity itemEntity) {
                 ItemStack stack = itemEntity.getItem();
-                if (stack.has(FlightToolsMod.BOOST_HOLDER) && itemEntity.getOwner() instanceof Player player) {
+                if (stack.has(FlightToolsMod.BOOST_HOLDER) && itemEntity.getOwner() instanceof Player player &&
+                    !player.isShiftKeyDown()) {
                     FlyingTool flyingTool = new FlyingTool(event.getLevel(), stack, player);
                     flyingTool.moveTo(itemEntity.position());
                     if (server.addFreshEntity(flyingTool)) {

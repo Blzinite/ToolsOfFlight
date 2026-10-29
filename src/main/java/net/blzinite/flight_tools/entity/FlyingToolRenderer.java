@@ -9,6 +9,7 @@ import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
+import net.minecraft.world.inventory.InventoryMenu;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.Vec3;
@@ -30,8 +31,8 @@ public class FlyingToolRenderer extends EntityRenderer<FlyingTool> {
     public void render(FlyingTool entity, float entityYaw, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight) {
         ItemStack itemStack = entity.getItem();
 
-        float yaw = Mth.rotLerp(partialTick, entity.yRotO, entity.getYRot());
-        float pitch = Mth.lerp(partialTick, entity.xRotO, entity.getXRot());
+        float yaw = entity.getViewYRot(partialTick);
+        float pitch = entity.getViewXRot(partialTick);
 
         Quaternionf rotation = new Quaternionf()
                 .rotateY((float) Math.toRadians(-yaw-90f))
@@ -79,7 +80,6 @@ public class FlyingToolRenderer extends EntityRenderer<FlyingTool> {
 
         poseStack.pushPose();
         poseStack.mulPose(rotation);
-//        poseStack.scale(3.0F, 3.0F, 3.0F);
 
         this.itemRenderer.renderStatic(itemStack, ItemDisplayContext.THIRD_PERSON_RIGHT_HAND, packedLight, OverlayTexture.NO_OVERLAY, poseStack, bufferSource, entity.level(), 0);
 
@@ -90,7 +90,7 @@ public class FlyingToolRenderer extends EntityRenderer<FlyingTool> {
 
     @Override
     public ResourceLocation getTextureLocation(FlyingTool entity) {
-        return TextureAtlas.LOCATION_BLOCKS;
+        return InventoryMenu.BLOCK_ATLAS;
     }
 }
 
