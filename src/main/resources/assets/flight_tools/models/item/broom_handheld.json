@@ -1,0 +1,26 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "flight_tools:item/broom"
+  },
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [ -45.0, -90.0, 0.0 ],
+      "translation": [0, 2, 2],
+      "scale": [ 2.0, 2.0, 1.0 ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [ -45.0, 90.0, 0.0 ],
+      "translation": [0, 2, 2],
+      "scale": [ 2.0, 2.0, 1.0 ]
+    },
+    "firstperson_righthand": {
+      "rotation": [ -45.0, -90.0, 0.0 ],
+      "scale": [ 2.0, 2.0, 1.0 ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [ -45.0, 90.0, 0.0 ],
+      "scale": [ 2.0, 2.0, 1.0 ]
+    }
+  }
+}

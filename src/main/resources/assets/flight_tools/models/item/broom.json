@@ -1,0 +1,15 @@
+{
+  "parent": "item/handheld",
+  "loader": "neoforge:separate_transforms",
+  "base": {
+    "parent": "flight_tools:item/broom_handheld"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "minecraft:item/handheld",
+      "textures": {
+        "layer0": "flight_tools:item/broom_mini"
+      }
+    }
+  }
+}
